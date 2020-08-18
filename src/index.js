@@ -77,6 +77,41 @@ var UIAssembler = (function() {
     contentDiv.appendChild(homeDiv);
   };
 
+  var createMenuElements = function() {
+
+  };
+
+  var createContactElements = function() {
+    const contentDiv = document.getElementById('content');
+
+    // 1 - Create Elements
+    const contactDiv = document.createElement('div');
+    const spanTitle = document.createElement('span');
+    const spanInfo = document.createElement('span');
+
+    // 2 - Add Id's
+    contactDiv.setAttribute('id', 'tab-contact');
+
+    // 3 - Add Classes
+    contactDiv.classList.add('bg-fade', 'w-96');
+    spanTitle.classList.add('bold', 'text-home', 'tab-link');
+    spanInfo.classList.add('text-white', 'text-home');
+
+    // 4 - Add Content
+    spanTitle.innerHTML = 'BRestaurant <br><br>'
+    spanInfo.textContent = 'I am pretty sure you know this is not real, right?'
+
+    // 5 - Append spans to div
+    contactDiv.appendChild(spanTitle);
+    contactDiv.appendChild(spanInfo);
+
+    // 6 - Append Div to Content
+    contentDiv.appendChild(contactDiv);
+  };
+
+  var createAboutElements = function() {
+
+  };
 
   return {
     setSelectTabs: function() {
@@ -85,6 +120,18 @@ var UIAssembler = (function() {
 
     setHome: function() {
       createHomeElements();
+    },
+
+    setMenu: function() {
+      createMenuElements();
+    },
+
+    setContact: function() {
+      createContactElements();
+    },
+
+    setAbout: function() {
+      createAboutElements();
     }
   };
 })();
@@ -94,7 +141,7 @@ var Controller = (function(Assembler) {
   var deleteDisplayedScreen = function() {
     const contentDiv = document.getElementById('content');
     if (contentDiv.lastChild.id !== 'select-tabs')
-    contentDiv.removeChild(contentDiv.lastChild);
+      contentDiv.removeChild(contentDiv.lastChild);
   };
 
   var setupEventListeners = function() {
@@ -116,7 +163,7 @@ var Controller = (function(Assembler) {
       // 1 - Delete Current Displayed Screen
       deleteDisplayedScreen();
       // 2 - Display Contact Tab
-      console.log('contact');
+      Assembler.setContact();
     });
 
     document.getElementById('about').addEventListener('click', function() {
