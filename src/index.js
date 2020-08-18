@@ -235,7 +235,7 @@ var Controller = (function(Assembler) {
       deleteDisplayedScreen();
       Assembler.setContact();
     }
-    else if (event.target.id === 'link-contact') {
+    else if (event.target.id === 'link-about') {
       deleteDisplayedScreen();
       Assembler.setAbout();
     }
