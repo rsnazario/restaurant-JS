@@ -1,5 +1,13 @@
-body {
-  background: url(https://static.wixstatic.com/media/869497_eadb7058f893490b9bcc4ad27b364f33~mv2.jpg) no-repeat center center fixed;
+body::after {
+  content: "";
+  background: url(https://static.wixstatic.com/media/869497_eadb7058f893490b9bcc4ad27b364f33~mv2.jpg);
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
   background-size: cover;
 }
 
@@ -22,6 +30,7 @@ a {
 .w-96 {
   width: 96%;
   margin: auto;
+  padding: 10px;
 }
 
 .w-50 {
@@ -79,8 +88,7 @@ a {
   grid-gap: 30px;
 }
 
-.meal {
-  
+.meal {  
   display: flex;
 }
 

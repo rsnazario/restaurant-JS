@@ -19,7 +19,7 @@ var UIAssembler = (function() {
 
     // 3 - Add Classes
     mainDiv.classList.add('bg-fade', 'size-100');
-    homeDiv.classList.add('tabs', 'size-100', 'text-white');
+    homeDiv.classList.add('tabs', 'size-100', 'text-white', 'tabs-active');
     menuDiv.classList.add('tabs', 'size-100', 'text-white');
     contactDiv.classList.add('tabs', 'size-100', 'text-white');
     aboutDiv.classList.add('tabs', 'size-100', 'text-white');
