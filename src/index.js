@@ -78,7 +78,54 @@ var UIAssembler = (function() {
   };
 
   var createMenuElements = function() {
+    const contentDiv = document.getElementById('content');
 
+    // 1 - Create Elements
+    const menuDiv = document.createElement('div');
+    const mealsDiv = document.createElement('div');
+    const mealDiv = document.createElement('div');
+    const thumbDiv = document.createElement('div');
+    const infoDiv = document.createElement('div');
+    const mealImg = document.createElement('img');
+    const spanOne = document.createElement('span');
+    const spanTwo = document.createElement('span');
+
+    // 2 - Add Id's
+    menuDiv.setAttribute('id', 'tab-menu');
+    mealDiv.setAttribute('style', 'height: 200px;');
+
+    // 3 - Add Classes
+    menuDiv.classList.add('bg-fade', 'w-96');
+    mealsDiv.classList.add('meals');
+    mealDiv.classList.add('meal');
+    thumbDiv.classList.add('thumbnail');
+    infoDiv.classList.add('info');
+    mealImg.classList.add('img-thumbnail');
+    spanOne.classList.add('text-white', 'text-home', 'bold');
+    spanTwo.classList.add('text-white', 'text-home');
+
+    // 4 - Add Content
+    mealImg.setAttribute('src', 'https://conteudo.imguol.com.br/a5/2020/02/25/feijoada-especial-1582657512280_v2_450x337.jpg');
+    spanOne.innerHTML = 'Feijoada<br><br>';
+    spanTwo.textContent = 'Traditional Black Beans Stew Meal with Meat. It goes with with Bacon Crumbs and Rice';
+    
+    // 5 - Append spans to div
+    thumbDiv.appendChild(mealImg);
+    infoDiv.appendChild(spanOne);
+    infoDiv.appendChild(spanTwo);
+
+    mealDiv.appendChild(thumbDiv);
+    mealDiv.appendChild(infoDiv);
+
+    mealsDiv.appendChild(mealDiv);
+    mealsDiv.appendChild(mealDiv.cloneNode(true));
+    mealsDiv.appendChild(mealDiv.cloneNode(true));
+    mealsDiv.appendChild(mealDiv.cloneNode(true));
+
+    menuDiv.appendChild(mealsDiv);
+
+    // 6 - Append Div to Content
+    contentDiv.appendChild(menuDiv);
   };
 
   var createContactElements = function() {
@@ -110,7 +157,35 @@ var UIAssembler = (function() {
   };
 
   var createAboutElements = function() {
+    const contentDiv = document.getElementById('content');
 
+    // 1 - Create Elements
+    const aboutDiv = document.createElement('div');
+    const spanOne = document.createElement('span');
+    const spanTwo = document.createElement('span');
+    const spanThree = document.createElement('span');
+
+    // 2 - Add Id's
+    aboutDiv.setAttribute('id', 'tab-about');
+
+    // 3 - Add Classes
+    aboutDiv.classList.add('bg-fade', 'w-96');
+    spanOne.classList.add('bold', 'text-home', 'text-white');
+    spanTwo.classList.add('text-white', 'text-home');
+    spanThree.classList.add('text-white', 'text-home');
+
+    // 4 - Add Content
+    spanOne.innerHTML = 'Hi, I am <span class="bold">Rsnazario</span>, the guy who developed this page<br><br>'
+    spanTwo.innerHTML = 'You can view my github profile <a href=\'https://github.com/rsnazario\' class="tab-link" target="_blank">here</a><br><br>'
+    spanThree.innerHTML = 'Or, you can look at the code <a href=\'https://github.com/rsnazario/restaurant-JS\' class="tab-link" target="_blank">here</a><br>'
+
+    // 5 - Append spans to div
+    aboutDiv.appendChild(spanOne);
+    aboutDiv.appendChild(spanTwo);
+    aboutDiv.appendChild(spanThree);
+
+    // 6 - Append Div to Content
+    contentDiv.appendChild(aboutDiv);
   };
 
   return {
@@ -150,13 +225,17 @@ var Controller = (function(Assembler) {
       deleteDisplayedScreen();
       // 2 - Display Home Tab
       Assembler.setHome();
+
+      document.getElementById('link-menu').addEventListener('click', Assembler.setMenu);
+      document.getElementById('link-contact').addEventListener('click', Assembler.setContact);
+      document.getElementById('link-About').addEventListener('click', Assembler.setAbout)
     });
 
     document.getElementById('menu').addEventListener('click', function() {
       // 1 - Delete Current Displayed Screen
       deleteDisplayedScreen();
       // 2 - Display Menu Tab
-      console.log('menu');
+      Assembler.setMenu();
     });
 
     document.getElementById('contact').addEventListener('click', function() {
@@ -170,7 +249,8 @@ var Controller = (function(Assembler) {
       // 1 - Delete Current Displayed Screen
       deleteDisplayedScreen();
       // 2 - Display About Tab
-      console.log('about');
+      console.log('about tested');
+      Assembler.setAbout();
     })
 
 
