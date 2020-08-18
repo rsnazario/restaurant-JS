@@ -194,18 +194,22 @@ var UIAssembler = (function() {
     },
 
     setHome: function() {
+      document.getElementById('home').classList.add('tabs-active');
       createHomeElements();
     },
 
     setMenu: function() {
+      document.getElementById('menu').classList.add('tabs-active');
       createMenuElements();
     },
 
     setContact: function() {
+      document.getElementById('contact').classList.add('tabs-active');
       createContactElements();
     },
 
     setAbout: function() {
+      document.getElementById('about').classList.add('tabs-active');
       createAboutElements();
     }
   };
@@ -215,21 +219,54 @@ var Controller = (function(Assembler) {
 
   var deleteDisplayedScreen = function() {
     const contentDiv = document.getElementById('content');
-    if (contentDiv.lastChild.id !== 'select-tabs')
+    if (contentDiv.lastChild.id !== 'select-tabs') {
       contentDiv.removeChild(contentDiv.lastChild);
+      const item = document.querySelector('.tabs-active')
+      item.classList.remove('tabs-active');
+    }
+  };
+
+  var linkClicked = function(event) {
+    if (event.target.id === 'link-menu') {
+      deleteDisplayedScreen();
+      Assembler.setMenu();
+    } 
+    else if (event.target.id === 'link-contact') {
+      deleteDisplayedScreen();
+      Assembler.setContact();
+    }
+    else if (event.target.id === 'link-contact') {
+      deleteDisplayedScreen();
+      Assembler.setAbout();
+    }
   };
 
   var setupEventListeners = function() {
+    document.getElement
+    
     document.getElementById('home').addEventListener('click', function() {
       // 1 - Delete Current Displayed Screen
       deleteDisplayedScreen();
       // 2 - Display Home Tab
       Assembler.setHome();
 
-      document.getElementById('link-menu').addEventListener('click', Assembler.setMenu);
-      document.getElementById('link-contact').addEventListener('click', Assembler.setContact);
-      document.getElementById('link-About').addEventListener('click', Assembler.setAbout)
+      // document.getElementById('link-menu').addEventListener('click', function() {
+      //   deleteDisplayedScreen();
+      //   Assembler.setMenu();
+      // });
+
+      // document.getElementById('link-contact').addEventListener('click', function() {
+      //   deleteDisplayedScreen();
+      //   Assembler.setContact();
+      // });
+      
+      // document.getElementById('link-About').addEventListener('click', function() {
+      //   deleteDisplayedScreen();
+      //   Assembler.setAbout();
+      // });
     });
+
+    document.getElementById('content').addEventListener('click', linkClicked);
 
     document.getElementById('menu').addEventListener('click', function() {
       // 1 - Delete Current Displayed Screen
@@ -249,7 +286,6 @@ var Controller = (function(Assembler) {
       // 1 - Delete Current Displayed Screen
       deleteDisplayedScreen();
       // 2 - Display About Tab
-      console.log('about tested');
       Assembler.setAbout();
     })
 
