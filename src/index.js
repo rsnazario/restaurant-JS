@@ -91,12 +91,51 @@ var UIAssembler = (function() {
 
 var Controller = (function(Assembler) {
 
+  var deleteDisplayedScreen = function() {
+    const contentDiv = document.getElementById('content');
+    if (contentDiv.lastChild.id !== 'select-tabs')
+    contentDiv.removeChild(contentDiv.lastChild);
+  };
+
+  var setupEventListeners = function() {
+    document.getElementById('home').addEventListener('click', function() {
+      // 1 - Delete Current Displayed Screen
+      deleteDisplayedScreen();
+      // 2 - Display Home Tab
+      Assembler.setHome();
+    });
+
+    document.getElementById('menu').addEventListener('click', function() {
+      // 1 - Delete Current Displayed Screen
+      deleteDisplayedScreen();
+      // 2 - Display Menu Tab
+      console.log('menu');
+    });
+
+    document.getElementById('contact').addEventListener('click', function() {
+      // 1 - Delete Current Displayed Screen
+      deleteDisplayedScreen();
+      // 2 - Display Contact Tab
+      console.log('contact');
+    });
+
+    document.getElementById('about').addEventListener('click', function() {
+      // 1 - Delete Current Displayed Screen
+      deleteDisplayedScreen();
+      // 2 - Display About Tab
+      console.log('about');
+    })
+
+
+  };
+
   return {
     init: function() {
       console.log('hello world');
       console.log('webpack has worked');
       Assembler.setSelectTabs();
       Assembler.setHome();
+      setupEventListeners();
     }
   }
 })(UIAssembler);
