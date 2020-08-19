@@ -1,7 +1,7 @@
 const SelectTabs = () => {
-  var createSelectTabsElements = function() {
+  const createSelectTabsElements = function () {
     const contentDiv = document.getElementById('content');
-    
+
     // 1 - create divs
     const mainDiv = document.createElement('div');
     const homeDiv = document.createElement('div');
@@ -34,12 +34,13 @@ const SelectTabs = () => {
     mainDiv.appendChild(menuDiv);
     mainDiv.appendChild(contactDiv);
     mainDiv.appendChild(aboutDiv);
-    
+
     // 5 - Append mainDiv to ContentDiv
     contentDiv.appendChild(mainDiv);
   };
 
-  return {createSelectTabsElements};
+  return { createSelectTabsElements };
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { SelectTabs };

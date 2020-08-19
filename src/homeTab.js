@@ -1,5 +1,5 @@
 const Home = () => {
-  const createHomeElements = function() {
+  const createHomeElements = function () {
     const contentDiv = document.getElementById('content');
 
     // 1 - create elements
@@ -32,11 +32,12 @@ const Home = () => {
     homeDiv.appendChild(spanFour);
 
     // 6 - Append homeDiv to ContentDiv
-    
+
     contentDiv.appendChild(homeDiv);
   };
 
   return { createHomeElements };
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { Home };

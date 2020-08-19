@@ -1,5 +1,5 @@
 const Menu = () => {
-  var createMenuElements = function() {
+  const createMenuElements = function () {
     const contentDiv = document.getElementById('content');
 
     // 1 - Create Elements
@@ -30,7 +30,7 @@ const Menu = () => {
     mealImg.setAttribute('src', 'https://conteudo.imguol.com.br/a5/2020/02/25/feijoada-especial-1582657512280_v2_450x337.jpg');
     spanOne.innerHTML = 'Feijoada<br><br>';
     spanTwo.textContent = 'Traditional Black Beans Stew Meal with Meat. It goes with with Bacon Crumbs and Rice';
-    
+
     // 5 - Append spans to div
     thumbDiv.appendChild(mealImg);
     infoDiv.appendChild(spanOne);
@@ -53,4 +53,5 @@ const Menu = () => {
   return { createMenuElements };
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { Menu };

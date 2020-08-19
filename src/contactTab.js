@@ -1,5 +1,5 @@
 const Contact = () => {
-  var createContactElements = function() {
+  const createContactElements = function () {
     const contentDiv = document.getElementById('content');
 
     // 1 - Create Elements
@@ -16,8 +16,8 @@ const Contact = () => {
     spanInfo.classList.add('text-white', 'text-home');
 
     // 4 - Add Content
-    spanTitle.innerHTML = 'BRestaurant <br><br>'
-    spanInfo.textContent = 'I am pretty sure you know this is not real, right?'
+    spanTitle.innerHTML = 'BRestaurant <br><br>';
+    spanInfo.textContent = 'I am pretty sure you know this is not real, right?';
 
     // 5 - Append spans to div
     contactDiv.appendChild(spanTitle);
@@ -30,4 +30,5 @@ const Contact = () => {
   return { createContactElements };
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { Contact };

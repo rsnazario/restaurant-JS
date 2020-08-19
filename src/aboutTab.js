@@ -1,5 +1,5 @@
 const About = () => {
-  var createAboutElements = function() {
+  const createAboutElements = function () {
     const contentDiv = document.getElementById('content');
 
     // 1 - Create Elements
@@ -18,9 +18,9 @@ const About = () => {
     spanThree.classList.add('text-white', 'text-home');
 
     // 4 - Add Content
-    spanOne.innerHTML = 'Hi, I am <span class="bold">Rsnazario</span>, the guy who developed this page<br><br>'
-    spanTwo.innerHTML = 'You can view my github profile <a href=\'https://github.com/rsnazario\' class="tab-link" target="_blank">here</a><br><br>'
-    spanThree.innerHTML = 'Or, you can look at the code <a href=\'https://github.com/rsnazario/restaurant-JS\' class="tab-link" target="_blank">here</a><br>'
+    spanOne.innerHTML = 'Hi, I am <span class="bold">Rsnazario</span>, the guy who developed this page<br><br>';
+    spanTwo.innerHTML = 'You can view my github profile <a href=\'https://github.com/rsnazario\' class="tab-link" target="_blank">here</a><br><br>';
+    spanThree.innerHTML = 'Or, you can look at the code <a href=\'https://github.com/rsnazario/restaurant-JS\' class="tab-link" target="_blank">here</a><br>';
 
     // 5 - Append spans to div
     aboutDiv.appendChild(spanOne);
@@ -34,4 +34,5 @@ const About = () => {
   return { createAboutElements };
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export { About };
