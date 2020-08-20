@@ -12,7 +12,7 @@ const UIAssembler = (function (select, home, menu, contact, about) {
       const item = document.querySelector('.tabs-active');
       item.classList.remove('tabs-active');
     }
-  };
+  }
 
   return {
     setSelectTabs() {
