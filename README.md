@@ -1,6 +1,8 @@
 
 # restaurant-JS
-A Restaurant Page Built in Javascript Only.
+A Restaurant Page Built in Javascript Only by appending each element according to the user table selected. It applies the main use of Appending Child Elements and Bubbling EventListeners.
+
+
 The full description of this project can be found [here](https://www.theodinproject.com/courses/javascript/lessons/restaurant-page).
 
 ## Screenshots
